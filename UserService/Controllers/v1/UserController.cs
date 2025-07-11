@@ -30,27 +30,27 @@ namespace UserService.Controllers.v1
         [Authorize(Roles = "Admin,Internal")]
         public async Task<IActionResult> CreateUser([FromBody] object value)
         {
-            await _userService.CreateUserAsync(value);
-            return Ok();
+            var newUser = await _userService.CreateUserAsync(value);
+            return Ok(newUser);
         }
 
         [HttpPut("{userId}")]
         public async Task<IActionResult> UpdateUserProfileDetails(int userId, [FromBody] object user)
         {
-            await _userService.UpdateUserProfileDetailsAsync(userId, user);
-            return Ok();
+            var updatedProfile = await _userService.UpdateUserProfileDetailsAsync(userId, user);
+            return Ok(updatedProfile);
         }
         [HttpPut("{userId}/preferences")]
         public async Task<IActionResult> UpdateUserPreferences(int userId, [FromBody] object preferences)
         {
-            await _userService.UpdateUserPreferencesAsync(userId, preferences);
-            return Ok();
+            var updatedPreferences = await _userService.UpdateUserPreferencesAsync(userId, preferences);
+            return Ok(updatedPreferences);
         }
         [HttpPut("{userId}/settings")]
         public async Task<IActionResult> UpdateUserSettings(int userId, [FromBody] object settings)
         {
-            await _userService.UpdateUserSettingsAsync(userId, settings);
-            return Ok();
+            var updatedSettings = await _userService.UpdateUserSettingsAsync(userId, settings);
+            return Ok(updatedSettings);
         }
 
         [HttpDelete("{userId}")]

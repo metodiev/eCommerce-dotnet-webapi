@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UserService.Services.Interfaces
+namespace UserService.Repository.Interfaces
 {
-    public interface IUserService
+    public interface IUserRepository
     {
         public Task<object> CreateUserAsync(object value);
         public Task DeleteUserAsync(int userId);

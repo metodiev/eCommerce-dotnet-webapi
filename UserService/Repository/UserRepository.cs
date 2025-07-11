@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using UserService.Repository.Interfaces;
-using UserService.Services.Interfaces;
 
-namespace UserService.Services
+namespace UserService.Repository
 {
-    public class UserService : IUserService
+    public class UserRepository : IUserRepository
     {
-        private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }
         public Task<object> CreateUserAsync(object value)
         {
             throw new NotImplementedException();
