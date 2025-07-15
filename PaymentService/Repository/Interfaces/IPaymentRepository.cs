@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PaymentService.Services.Interfaces
+namespace PaymentService.Repository.Interfaces
 {
-    public interface IPaymentService
+    public interface IPaymentRepository
     {
         Task<object> AddPaymentMethodForUserAsync(object paymentMethod);
         Task<object> CreatePaymentTransactionAsync(object payment);
@@ -15,6 +15,5 @@ namespace PaymentService.Services.Interfaces
         Task<IList<object>> GetPaymentMethodsAsync();
         Task<object> RefundPaymentAsync(int paymentId);
         Task ValidatePaymentAsync(object validatedPayment);
-
     }
 }

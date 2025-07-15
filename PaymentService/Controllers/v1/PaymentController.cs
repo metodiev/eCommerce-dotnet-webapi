@@ -62,12 +62,77 @@ namespace PaymentService.Controllers.v1
         /// </summary>
         /// <param name="warehouseId">Id of warehouse of the inventory snapshot to fetch</param>
         /// <returns></returns>
-        [HttpGet("/user/{userId}")]
+        [HttpGet("user/{userId}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllPaymentsByUserId(int userId)
         {
             var paymentList = await _paymentService.GetAllPaymentsByUserIdAsync(userId);
             return Ok(paymentList);
+        }
+        /// <summary>
+        /// Validate payment method and order before transaction
+        /// </summary>
+        /// <param name="validatedPayment">Validated payment information</param>
+        /// <returns></returns>
+        [HttpPost("validate")]
+        public async Task<IActionResult> ValidatePayment(object validatedPayment)
+        {
+            await _paymentService.ValidatePaymentAsync(validatedPayment);
+            return Ok();
+        }
+        /// <summary>
+        /// Get supported payment methods (cards, wallets, etc.)
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("methods")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPaymentMethods()
+        {
+            var paymentMethods = await _paymentService.GetPaymentMethodsAsync();
+            return Ok(paymentMethods);
+        }
+        /// <summary>
+        /// Add a new payment method for the user
+        /// </summary>
+        /// <param name="paymentMethod">Supported payment method to add to user profile</param>
+        /// <returns></returns>
+        [HttpPost("methods")]
+        public async Task<IActionResult> AddPaymentMethodForUser(object paymentMethod)
+        {
+            var newPaymentMethodForUser = await _paymentService.AddPaymentMethodForUserAsync(paymentMethod);
+            return Ok(newPaymentMethodForUser);
+        }
+        /// <summary>
+        /// Delete a saved payment method
+        /// </summary>
+        /// <param name="methodId"></param>
+        /// <returns></returns>
+        [HttpDelete("methods/{methodId}")]
+        public async Task<IActionResult> DeleteSavedPaymentMethod(int methodId)
+        {
+            await _paymentService.DeleteSavedPaymentMethodAsync(methodId);
+            return Ok();
+        }
+        /// <summary>
+        /// List external payment providers configured
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("providers")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetExternalPaymentProviders()
+        {
+            await _paymentService.GetExternalPaymentProvidersAsync();
+            return Ok();
+        }
+        /// <summary>
+        /// Health check for the PaymentService
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("health")]
+        [AllowAnonymous]
+        public async Task<IActionResult> HealthCheck()
+        {
+            return Ok();
         }
     }
 }
