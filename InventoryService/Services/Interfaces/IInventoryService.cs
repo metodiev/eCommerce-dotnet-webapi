@@ -9,8 +9,8 @@ namespace InventoryService.Services.Interfaces
         Task<object> GetInventorySnapshotByWareHouseIdAsync(int warehouseId);
         Task<IList<object>> GetProductHistoryAsync(int productId);
         Task<object> GetStockLevelByProductIdAsync(int productId);
-        Task<object> TransferStockAsync(object transferedStock);
-        Task<object> UpdateStockLevelAsync(int productId);
-        Task<IList<object>> UpdateStockLevelBulkAsync(IList<object> stockLevels);
+        Task<object> TransferStockAsync(object transferredStock);
+        Task<object> UpdateStockLevelAsync(int productId, object stockLevel);
+        Task<IList<object>> UpdateStockLevelBulkAsync(IList<object> vendors);
     }
 }

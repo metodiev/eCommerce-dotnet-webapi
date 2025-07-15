@@ -42,21 +42,21 @@ namespace InventoryService.Controllers.v1
         [Authorize(Roles = "Admin,Internal")]
         public async Task<IActionResult> UpdateStockLevel(int productId, object stockLevel)
         {
-            var newStockLevel = await _inventoryService.UpdateStockLevelAsync(productId);
+            var newStockLevel = await _inventoryService.UpdateStockLevelAsync(productId, stockLevel);
             return Ok(newStockLevel);
         }
         /// <summary>
         /// Bulk update stock levels (e.g., via vendor feed or sync)
         /// </summary>
         /// <param name="userId">Id of user to update</param>
-        /// <param name="settings">Updated user preferences</param>
+        /// <param name="settings">Vendors yo update stock levels for</param>
         /// <returns>Newly updated user settings from database</returns>
         [HttpPut("batch-update")]
         [Authorize]
-        public async Task<IActionResult> UpdateStockLevelBulk ([FromBody] IList<object> stockLevels)
+        public async Task<IActionResult> UpdateStockLevelBulk ([FromBody] IList<object> vendors)
         {
-            var updatedSettings = await _inventoryService.UpdateStockLevelBulkAsync(stockLevels);
-            return Ok(updatedSettings);
+            var updatedStockLevels = await _inventoryService.UpdateStockLevelBulkAsync(vendors);
+            return Ok(updatedStockLevels);
         }
 
         /// <summary>
@@ -74,13 +74,13 @@ namespace InventoryService.Controllers.v1
         /// <summary>
         /// Transfer stock between warehouses
         /// </summary>
-        /// <param name="transferedStock">Modified stock with different warehouse location</param>
+        /// <param name="transferredStock">Modified stock with different warehouse location</param>
         /// <returns></returns>
         [HttpPost("warehouse-transfer")]
         [Authorize(Roles = "Internal")]
-        public async Task<IActionResult> TransferStock(object transferedStock)
+        public async Task<IActionResult> TransferStock(object transferredStock)
         {
-            var updatedStock = await _inventoryService.TransferStockAsync(transferedStock);
+            var updatedStock = await _inventoryService.TransferStockAsync(transferredStock);
             return Ok(updatedStock);
         }
         /// <summary>
