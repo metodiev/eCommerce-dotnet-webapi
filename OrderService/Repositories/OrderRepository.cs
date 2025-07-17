@@ -34,6 +34,11 @@ namespace OrderService.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<string> HealthCheckAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> RepeatOrderAsync(string orderId)
         {
             throw new NotImplementedException();

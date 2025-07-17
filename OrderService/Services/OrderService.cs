@@ -62,5 +62,10 @@ namespace OrderService.Services
         {
             return await _orderRepository.ValidateOrderAsync(orderId);
         }
+
+        public async Task<string> HealthCheckAsync()
+        {
+            return await _orderRepository.HealthCheckAsync();
+        }
     }
 }

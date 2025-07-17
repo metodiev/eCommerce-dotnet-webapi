@@ -138,5 +138,17 @@ namespace OrderService.Controller.v1
             await _orderService.ValidateOrderAsync(orderId);
             return Ok();
         }
+
+
+        /// <summary>
+        /// Standard health check endpoint
+        /// </summary>
+        /// <returns> The result of the health check in string format </returns>
+        [HttpGet("health")]
+        public async Task<IActionResult> HealthCheck()
+        {
+            await _orderService.HealthCheckAsync();
+            return Ok();
+        }
     }
 }

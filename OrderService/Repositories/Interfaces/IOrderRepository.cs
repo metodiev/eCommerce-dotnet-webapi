@@ -12,5 +12,7 @@
         Task<List<object>> GetOrderItemsAsync(string orderId);
         Task<bool> UpdateOrderItemsAsync(string orderId, List<object> items);
         Task<bool> ValidateOrderAsync(string orderId);
+
+        Task<string> HealthCheckAsync();
     }
 }
