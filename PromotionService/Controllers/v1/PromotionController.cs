@@ -97,7 +97,7 @@ namespace PromotionService.Controllers.v1
         /// Get active or personalized promotions for a user
         /// </summary>
         /// <param name="promotionId">Id of user to fetch</param>
-        /// <returns></returns>
+        /// <returns>List of promotions</returns>
         [HttpGet("{userId}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetPersonalizedPromotionsForUser(int userId)
@@ -108,7 +108,7 @@ namespace PromotionService.Controllers.v1
         /// <summary>
         /// Get banner ads and campaign visuals (e.g. homepage banners)
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of visuals</returns>
         [HttpGet("banners")]
         [AllowAnonymous]
         public async Task<IActionResult> GetBannersAndVisuals()
@@ -116,8 +116,16 @@ namespace PromotionService.Controllers.v1
             var banners = await _promotionService.GetBannersAndVisualsAsync();
             return Ok(banners);
         }
+
+        /// <summary>
+        /// Health check endpoint
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("health")]
+        [AllowAnonymous]
         public async Task<IActionResult> HealthCheck()
         {
+            await _promotionService.HealthCheckAsync();
             return Ok();
         }
     }
