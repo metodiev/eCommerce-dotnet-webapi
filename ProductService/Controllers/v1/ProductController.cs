@@ -111,6 +111,12 @@ namespace ProductService.Controllers.v1
             var productList = await _productService.GetProductAttributesByProductIdAsync(productId);
             return Ok(productList);
         }
+        /// <summary>
+        /// Update product attributes (admin-only)
+        /// </summary>
+        /// <param name="productId">Id of product to update attributes for</param>
+        /// <param name="productAttributes">Updated product attribute collection</param>
+        /// <returns></returns>
         [HttpPut("{productId}/attributes")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateProductAttributes(int productId, IList<object> productAttributes)
@@ -119,11 +125,30 @@ namespace ProductService.Controllers.v1
             return Ok(updatedProduct);
         }
         /// <summary>
+        /// Get available product tags
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("tags")]
+        public async Task<IActionResult> GetAvailableProductTags()
+        {
+            var tags = await _productService.GetAvailableProductTagsAsync();
+            return Ok(tags);
+        }
+        /// <summary>
+        /// List all product brands
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("brands")]
+        public async Task<IActionResult> GetAllProductBrands()
+        {
+            var brands = await _productService.GetAllProductBrandsAsync();
+            return Ok(brands);
+        }
+        /// <summary>
         /// Health check endpoint
         /// </summary>
         /// <returns></returns>
         [HttpGet("health")]
-        [AllowAnonymous]
         public async Task<IActionResult> HealthCheck()
         {
             await _productService.HealthCheckAsync();

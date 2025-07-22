@@ -8,6 +8,8 @@ namespace ProductService.Services.Interfaces
     {
         Task<object> CreateProductAsync(object product);
         Task DeleteProductAsync(int productId);
+        Task<IList<object>> GetAllProductBrandsAsync();
+        Task<IList<object>> GetAvailableProductTagsAsync();
         Task<IList<object>> GetFilteredProductsAsync(object searchCriteria);
         Task<IList<object>> GetPaginatedProductsAsync();
         Task<IList<object>> GetProductAttributesByProductIdAsync(int productId);

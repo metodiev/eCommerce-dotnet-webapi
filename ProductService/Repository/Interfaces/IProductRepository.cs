@@ -6,5 +6,17 @@ namespace ProductService.Repository.Interfaces
 {
     public interface IProductRepository
     {
+        Task<object> CreateProductAsync(object product);
+        Task DeleteProductAsync(int productId);
+        Task<IList<object>> GetAllProductBrandsAsync();
+        Task<IList<object>> GetAvailableProductTagsAsync();
+        Task<IList<object>> GetFilteredProductsAsync(object searchCriteria);
+        Task<IList<object>> GetPaginatedProductsAsync();
+        Task<IList<object>> GetProductAttributesByProductIdAsync(int productId);
+        Task<object> GetProductByIdAsync(int productId);
+        Task<IList<object>> GetProductsByCategoryIdAsync(int categoryId);
+        Task HealthCheckAsync();
+        Task<object> UpdateProductAsync(object product, object modifiedProduct);
+        Task<IList<object>> UpdateProductAttributesAsync(int productId, IList<object> productAttributes);
     }
 }
