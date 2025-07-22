@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AuthService.Controllers.v1
 {
     [ApiController]
-    [Route("v1/auth")]
+    [Route("api/v1/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -18,9 +18,9 @@ namespace AuthService.Controllers.v1
         /// </summary>
         /// <returns>A Status(boolean) signifying if the register was successful</returns>
         [HttpPost("register")]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
-            var result = _authService.RegisterAsync();
+            var result = await _authService.RegisterAsync();
             return Ok(result);
         }
 
@@ -32,8 +32,8 @@ namespace AuthService.Controllers.v1
         [HttpPost("login")]
         public async Task<IActionResult> Login()
         {
-            await _authService.LoginAsync();
-            return Ok();
+            var result = await _authService.LoginAsync();
+            return Ok(result);
         }
 
         /// <summary>
@@ -54,8 +54,8 @@ namespace AuthService.Controllers.v1
         [HttpPost("logout")]
         public async Task<IActionResult> Logout(string userId)
         {
-            await _authService.LogoutAsync(userId);
-            return Ok();
+            var result = await _authService.LogoutAsync(userId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace AuthService.Controllers.v1
         [HttpGet("session")]
         public async Task<IActionResult> GetSession([FromBody] string jwt)
         {
-            await _authService.GetSessionAsync(jwt);
-            return Ok();
+            var result = await _authService.GetSessionAsync(jwt);
+            return Ok(result);
         }
 
         /// <summary>
@@ -76,8 +76,8 @@ namespace AuthService.Controllers.v1
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(string userId)
         {
-            await _authService.ForgotPasswordAsync(userId);
-            return Ok();
+            var result = await _authService.ForgotPasswordAsync(userId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace AuthService.Controllers.v1
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(string userId)
         {
-            await _authService.ResetPasswordAsync(userId);
-            return Ok();
+            var result = await _authService.ResetPasswordAsync(userId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace AuthService.Controllers.v1
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword(string userId, string oldPassword, string newPassword)
         {
-            await _authService.ChangePasswordAsync(userId,oldPassword,newPassword);
-            return Ok();
+            var result = await _authService.ChangePasswordAsync(userId,oldPassword,newPassword);
+            return Ok(result);
         }
 
         /// <summary>
@@ -109,8 +109,8 @@ namespace AuthService.Controllers.v1
         [HttpGet("roles")]
         public async Task<IActionResult> GetAllRoles()
         {
-            await _authService.GetAllRolesAsync();
-            return Ok();
+            var result = await _authService.GetAllRolesAsync();
+            return Ok(result);
         }
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace AuthService.Controllers.v1
         [HttpGet("roles/{id}")]
         public async Task<IActionResult> GetRoleById(string roleId)
         {
-            await _authService.GetRoleByIdAsync(roleId);
-            return Ok();
+            var result = await _authService.GetRoleByIdAsync(roleId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -133,8 +133,8 @@ namespace AuthService.Controllers.v1
         //[Authorization("admin")] -- will add after deciding auth logic
         public async Task<IActionResult> CreateNewRole()
         {
-            await _authService.CreateNewRoleAsync();
-            return Ok();
+            var result = await _authService.CreateNewRoleAsync();
+            return Ok(result);
         }
 
         /// <summary>
@@ -145,8 +145,8 @@ namespace AuthService.Controllers.v1
         //[Authorization("admin")] -- will add after deciding auth logic
         public async Task<IActionResult> UpdateRole()
         {
-            await _authService.UpdateRoleAsync();
-            return Ok();
+            var result = await _authService.UpdateRoleAsync();
+            return Ok(result);
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace AuthService.Controllers.v1
         //[Authorization("admin")] -- will add after deciding auth logic
         public async Task<IActionResult> DeleteRole(string roleId)
         {
-            await _authService.DeleteRoleAsync(roleId);
-            return Ok();
+            var result = await _authService.DeleteRoleAsync(roleId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -171,8 +171,8 @@ namespace AuthService.Controllers.v1
         //[Authorization("admin")] -- will add after deciding auth logic
         public async Task<IActionResult> GetUserAssignedRoles(string userId)
         {
-            await _authService.GetUserAssignedRolesAsync(userId);
-            return Ok();
+            var result = await _authService.GetUserAssignedRolesAsync(userId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -184,8 +184,8 @@ namespace AuthService.Controllers.v1
         //[Authorization("admin")] -- will add after deciding auth logic
         public async Task<IActionResult> AssignRoleToUser(string userId, string roleId)
         {
-            await _authService.AssignRoleToUserAsync(userId, roleId);
-            return Ok();
+            var result = await _authService.AssignRoleToUserAsync(userId, roleId);
+            return Ok(result);
         }
     }
 }

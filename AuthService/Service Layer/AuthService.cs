@@ -20,14 +20,14 @@ namespace AuthService.Service_Layer
             return await _authRepository.ChangePasswordAsync(userId, oldPassword, newPassword);
         }
 
-        public async Task CreateNewRoleAsync()
+        public async Task<bool> CreateNewRoleAsync()
         {
-             await _authRepository.CreateNewRoleAsync();
+            return await _authRepository.CreateNewRoleAsync();
         }
 
-        public async Task DeleteRoleAsync(string roleId)
+        public async Task<bool> DeleteRoleAsync(string roleId)
         {
-             await _authRepository.DeleteRoleAsync(roleId);
+            return await _authRepository.DeleteRoleAsync(roleId);
         }
 
         public async Task<bool> ForgotPasswordAsync(string userId)
@@ -35,29 +35,29 @@ namespace AuthService.Service_Layer
             return await _authRepository.ForgotPasswordAsync(userId);
         }
 
-        public async Task GetAllRolesAsync()
+        public async Task<List<object>> GetAllRolesAsync()
         {
-           await _authRepository.GetAllRolesAsync();
+            return await _authRepository.GetAllRolesAsync();
         }
 
-        public async Task GetRoleByIdAsync(string roleId)
+        public async Task<object> GetRoleByIdAsync(string roleId)
         {
-             await _authRepository.GetRoleByIdAsync(roleId);
+            return await _authRepository.GetRoleByIdAsync(roleId);
         }
 
-        public async Task GetSessionAsync(string jwt)
+        public async Task<object> GetSessionAsync(string jwt)
         {
-            await _authRepository.GetSessionAsync(jwt);
+            return await _authRepository.GetSessionAsync(jwt);
         }
 
-        public async Task GetUserAssignedRolesAsync(string userId)
+        public async Task<List<object>> GetUserAssignedRolesAsync(string userId)
         {
-             await _authRepository.GetUserAssignedRolesAsync(userId);
+            return await _authRepository.GetUserAssignedRolesAsync(userId);
         }
 
-        public async Task LoginAsync()
+        public async Task<string> LoginAsync()
         {
-           await _authRepository.LoginAsync();
+            return await _authRepository.LoginAsync();
         }
 
         public async Task<bool> LogoutAsync(string userId)
@@ -80,9 +80,9 @@ namespace AuthService.Service_Layer
             return await _authRepository.ResetPasswordAsync(userId);
         }
 
-        public async Task UpdateRoleAsync()
+        public async Task<bool> UpdateRoleAsync()
         {
-             await _authRepository.UpdateRoleAsync();
+            return await _authRepository.UpdateRoleAsync();
         }
     }
 }

@@ -14,12 +14,12 @@ namespace AuthService.Repository
             throw new NotImplementedException();
         }
 
-        public Task CreateNewRoleAsync()
+        public Task<bool> CreateNewRoleAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteRoleAsync(string roleId)
+        public Task<bool> DeleteRoleAsync(string roleId)
         {
             throw new NotImplementedException();
         }
@@ -29,27 +29,27 @@ namespace AuthService.Repository
             throw new NotImplementedException();
         }
 
-        public Task GetAllRolesAsync()
+        public Task<List<object>> GetAllRolesAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task GetRoleByIdAsync(string roleId)
+        public Task<object> GetRoleByIdAsync(string roleId)
         {
             throw new NotImplementedException();
         }
 
-        public Task GetSessionAsync(string jwt)
+        public Task<object> GetSessionAsync(string jwt)
         {
             throw new NotImplementedException();
         }
 
-        public Task GetUserAssignedRolesAsync(string userId)
+        public Task<List<object>> GetUserAssignedRolesAsync(string userId)
         {
             throw new NotImplementedException();
         }
 
-        public Task LoginAsync()
+        public Task<string> LoginAsync()
         {
             throw new NotImplementedException();
         }
@@ -74,7 +74,7 @@ namespace AuthService.Repository
             throw new NotImplementedException();
         }
 
-        public Task UpdateRoleAsync()
+        public Task<bool> UpdateRoleAsync()
         {
             throw new NotImplementedException();
         }
