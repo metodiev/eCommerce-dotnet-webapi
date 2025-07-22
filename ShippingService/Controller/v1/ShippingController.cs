@@ -21,8 +21,8 @@ namespace ShippingService.Controller.v1
         [HttpGet("{orderId}/status")]
         public async Task<IActionResult> GetShippingStatusOfOrder(string orderId)
         {
-            await _shippingService.GetShippingStatusOfOrderAsync(orderId);
-            return Ok();
+            var result = await _shippingService.GetShippingStatusOfOrderAsync(orderId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace ShippingService.Controller.v1
         [HttpPost("{orderId}/create-label")]
         public async Task<IActionResult> CreateShippingLabel(string orderId)
         {
-            await _shippingService.CreateShippingLabelAsync(orderId);
-            return Ok();
+            var result = await _shippingService.CreateShippingLabelAsync(orderId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace ShippingService.Controller.v1
         [HttpPost("{orderId}/track")]
         public async Task<IActionResult> FetchLatestTrackingDataFromCourier(string orderId)
         {
-            await _shippingService.FetchLatestTrackingDataFromCourierAsync(orderId);
-            return Ok();
+            var result = await _shippingService.FetchLatestTrackingDataFromCourierAsync(orderId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace ShippingService.Controller.v1
         [HttpGet("carriers")]
         public async Task<IActionResult> GetSupportedCouriers()
         {
-            await _shippingService.GetSupportedCouriersAsync();
-            return Ok();
+            var result = await _shippingService.GetSupportedCouriersAsync();
+            return Ok(result);
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace ShippingService.Controller.v1
         [HttpPost("calculate")]
         public async Task<IActionResult> CalculateShippingCostsAndTime(string orderId)
         {
-            await _shippingService.CalculateShippingCostsAndTimeAsync(orderId);
-            return Ok();
+            var result = await _shippingService.CalculateShippingCostsAndTimeAsync(orderId);
+            return Ok(result);
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace ShippingService.Controller.v1
         [HttpPost("notify-delay")]
         public async Task<IActionResult> NotifyOfOrderDelays()
         {
-            await _shippingService.NotifyOfOrderDelaysAsync();
-            return Ok();
+            var result = await _shippingService.NotifyOfOrderDelaysAsync();
+            return Ok(result);
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace ShippingService.Controller.v1
         [HttpGet("health")]
         public async Task<IActionResult> HealthCheck()
         {
-            await _shippingService.HealthCheckAsync();
-            return Ok();
+            var result = await _shippingService.HealthCheckAsync();
+            return Ok(result);
         }
     }
 }
