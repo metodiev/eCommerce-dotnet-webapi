@@ -58,5 +58,85 @@ namespace SubscriptionService.Controllers.v1
             var subscriptions = await _subscriptionService.GetAllSubscriptionsForUserAsync(userId);
             return Ok(subscriptions);
         }
+        /// <summary>
+        /// Cancel a subscription (e.g. end of billing cycle)
+        /// </summary>
+        /// <param name="subscriptionId">Id of subscription to cancel</param>
+        /// <returns></returns>
+        [HttpPut("{subscriptionId}/cancel")]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> CancelSubscriptionById(int subscriptionId)
+        {
+            var canceledSubscription = await _subscriptionService.CancelSubscriptionByIdAsync(subscriptionId);
+            return Ok(canceledSubscription);
+        }
+        /// <summary>
+        /// Pause a subscription temporarily
+        /// </summary>
+        /// <param name="subscriptionId">Id of subscription to pause</param>
+        /// <returns></returns>
+        [HttpPut("{subscriptionId}/pause")]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> PauseSubscriptionById(int subscriptionId)
+        {
+            var pausedSubscription = await _subscriptionService.PauseSubscriptionByIdAsync(subscriptionId);
+            return Ok(pausedSubscription);
+        }
+        /// <summary>
+        /// Resume a paused subscription
+        /// </summary>
+        /// <param name="subscriptionId">Id of subscription to resume</param>
+        /// <returns></returns>
+        [HttpPut("{subscriptionId}/resume")]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> ResumeSubscriptionById(int subscriptionId)
+        {
+            var resumedSubscription = await _subscriptionService.ResumeSubscriptionByIdAsync(subscriptionId);
+            return Ok(resumedSubscription);
+        }
+        /// <summary>
+        /// Upgrade or change a user’s subscription plan
+        /// </summary>
+        /// <param name="subscriptionId">Id of subscription to upgrade</param>
+        /// <param name="subscription">Updated subscription object</param>
+        /// <returns></returns>
+        [HttpPut("{subscriptionId}/upgrade")]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> UpgradeSubscription(int subscriptionId, object subscription)
+        {
+            var upgradedSubscription = await _subscriptionService.UpgradeSubscriptionAsync(subscriptionId, subscription);
+            return Ok(upgradedSubscription);
+        }
+        /// <summary>
+        /// Get a list of available subscription plans
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("plans")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAvailableSubscriptionPlans()
+        {
+            var subscriptionPlanList = await _subscriptionService.GetAvailableSubscriptionPlansAsync();
+            return Ok(subscriptionPlanList);
+        }
+        /// <summary>
+        /// Receive payment events from payment gateway (e.g., Stripe)
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("webhook/payment")]
+        public async Task<IActionResult> ReceivePaymentEvents(object payload)
+        {
+            var paymentEvents = await _subscriptionService.ReceivePaymentEventsAsync(payload);
+            return Ok(paymentEvents);
+        }
+        /// <summary>
+        /// Health check endpoint
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("health")]
+        public async Task<IActionResult> HealthCheck()
+        {
+            await _subscriptionService.HealthCheckAsync();
+            return Ok();
+        }
     }
 }
