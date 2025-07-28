@@ -33,6 +33,39 @@ namespace SearchService.Controllers.v1
             return Ok(products);
         }
         /// <summary>
+        /// Get detailed product info from search index
+        /// </summary>
+        /// <param name="productId">Id of product to fetch details for</param>
+        /// <returns></returns>
+        [HttpGet("products/{productId}")]
+        public async Task<IActionResult> GetProductDetailsFromId(int productId)
+        {
+            var product = await _searchService.GetProductDetailsFromIdAsync(productId);
+            return Ok(product);
+        }
+        /// <summary>
+        /// Trigger a full rebuild of the search index
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("index/rebuild")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> RebuildSearchIndex()
+        {
+            await _searchService.RebuildSearchIndexAsync();
+            return Ok();
+        }
+        /// <summary>
+        /// Get search autocomplete suggestions
+        /// </summary>
+        /// <param name="searchText">Text snippet entered for the search</param>
+        /// <returns></returns>
+        [HttpGet("suggestions")]
+        public async Task<IActionResult> GetSuggestions(string searchText)
+        {
+            var suggestions = await _searchService.GetSuggestionsAsync(searchText);
+            return Ok(suggestions);
+        }
+        /// <summary>
         /// Health check endpoint
         /// </summary>
         /// <returns></returns>
