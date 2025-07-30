@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "Invento
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentService\PaymentService.csproj", "{002969D5-3938-4C01-A71F-B07F58C72D3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamificationService", "GamificationService\GamificationService.csproj", "{9DDE00C1-850A-4B05-AAD0-3528899D3221}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{002969D5-3938-4C01-A71F-B07F58C72D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{002969D5-3938-4C01-A71F-B07F58C72D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{002969D5-3938-4C01-A71F-B07F58C72D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DDE00C1-850A-4B05-AAD0-3528899D3221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DDE00C1-850A-4B05-AAD0-3528899D3221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DDE00C1-850A-4B05-AAD0-3528899D3221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DDE00C1-850A-4B05-AAD0-3528899D3221}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
