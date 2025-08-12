@@ -33,6 +33,11 @@ namespace VendorService.Services
             return await _vendorRepository.GetVendorStatusByVendorIdAsync(vendorId);
         }
 
+        public async Task HealthCheckAsync()
+        {
+            await _vendorRepository.HealthCheckAsync();
+        }
+
         public async Task<IList<object>> MapVendorProductToInternalCatalogAsync(int vendorId, IList<object> vendorProducts)
         {
             return await _vendorRepository.MapVendorProductToInternalCatalogAsync(vendorId, vendorProducts);

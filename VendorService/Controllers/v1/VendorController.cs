@@ -119,10 +119,15 @@ namespace PaymentService.Controllers.v1
             var vendorStatus = await _vendorService.GetVendorStatusByVendorIdAsync(vendorId);
             return Ok(vendorStatus);
         }
+        /// <summary>
+        /// Health check endpoint
+        /// </summary>
+        /// <returns>Health status</returns>
         [HttpGet("health")]
         [AllowAnonymous]
         public async Task<IActionResult> HealthCheck()
         {
+            await _vendorService.HealthCheckAsync();
             return Ok();
         }
     }

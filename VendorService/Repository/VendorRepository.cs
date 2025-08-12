@@ -27,6 +27,11 @@ namespace VendorService.Repository
             throw new NotImplementedException();
         }
 
+        public Task HealthCheckAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IList<object>> MapVendorProductToInternalCatalogAsync(int vendorId, IList<object> vendorProducts)
         {
             throw new NotImplementedException();

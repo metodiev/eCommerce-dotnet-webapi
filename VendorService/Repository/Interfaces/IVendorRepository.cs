@@ -14,5 +14,6 @@ namespace VendorService.Repository.Interfaces
         Task<object> OnboardVendorAsync(object vendor);
         Task<object> UpdateVendorAsync(int vendorId, object vendorInfo);
         Task<IList<object>> UpdateVendorInventoryFeedAsync(int vendorId, IList<object> inventoryFeed);
+        Task HealthCheckAsync();
     }
 }
