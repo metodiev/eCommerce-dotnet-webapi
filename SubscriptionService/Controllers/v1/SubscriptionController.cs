@@ -41,7 +41,7 @@ namespace SubscriptionService.Controllers.v1
         /// <returns>Subscription Details</returns>
         [HttpGet("{subscriptionId}")]
         [Authorize(Roles = "Owner,Admin")]
-        public async Task<IActionResult> GetSubscriptionById(int subscriptionId)
+        public async Task<IActionResult> GetSubscriptionById(string subscriptionId)
         {
             var subscription = await _subscriptionService.GetSubscriptionByIdAsync(subscriptionId);
             return Ok(subscription);
@@ -53,7 +53,7 @@ namespace SubscriptionService.Controllers.v1
         /// <returns></returns>
         [HttpGet("user/{userId}")]
         [Authorize(Roles = "Owner,Admin")]
-        public async Task<IActionResult> GetAllSubscriptionsForUser(int userId)
+        public async Task<IActionResult> GetAllSubscriptionsForUser(string userId)
         {
             var subscriptions = await _subscriptionService.GetAllSubscriptionsForUserAsync(userId);
             return Ok(subscriptions);
@@ -65,7 +65,7 @@ namespace SubscriptionService.Controllers.v1
         /// <returns></returns>
         [HttpPut("{subscriptionId}/cancel")]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> CancelSubscriptionById(int subscriptionId)
+        public async Task<IActionResult> CancelSubscriptionById(string subscriptionId)
         {
             var canceledSubscription = await _subscriptionService.CancelSubscriptionByIdAsync(subscriptionId);
             return Ok(canceledSubscription);
@@ -77,7 +77,7 @@ namespace SubscriptionService.Controllers.v1
         /// <returns></returns>
         [HttpPut("{subscriptionId}/pause")]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> PauseSubscriptionById(int subscriptionId)
+        public async Task<IActionResult> PauseSubscriptionById(string subscriptionId)
         {
             var pausedSubscription = await _subscriptionService.PauseSubscriptionByIdAsync(subscriptionId);
             return Ok(pausedSubscription);
@@ -89,7 +89,7 @@ namespace SubscriptionService.Controllers.v1
         /// <returns></returns>
         [HttpPut("{subscriptionId}/resume")]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> ResumeSubscriptionById(int subscriptionId)
+        public async Task<IActionResult> ResumeSubscriptionById(string subscriptionId)
         {
             var resumedSubscription = await _subscriptionService.ResumeSubscriptionByIdAsync(subscriptionId);
             return Ok(resumedSubscription);
@@ -102,7 +102,7 @@ namespace SubscriptionService.Controllers.v1
         /// <returns></returns>
         [HttpPut("{subscriptionId}/upgrade")]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> UpgradeSubscription(int subscriptionId, object subscription)
+        public async Task<IActionResult> UpgradeSubscription(string subscriptionId, object subscription)
         {
             var upgradedSubscription = await _subscriptionService.UpgradeSubscriptionAsync(subscriptionId, subscription);
             return Ok(upgradedSubscription);

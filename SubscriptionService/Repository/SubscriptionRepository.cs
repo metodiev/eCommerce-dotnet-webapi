@@ -7,7 +7,7 @@ namespace SubscriptionService.Repository
 {
     public class SubscriptionRepository : ISubscriptionRepository
     {
-        public Task<object> CancelSubscriptionByIdAsync(int subscriptionId)
+        public Task<object> CancelSubscriptionByIdAsync(string subscriptionId)
         {
             throw new NotImplementedException();
         }
@@ -17,7 +17,7 @@ namespace SubscriptionService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IList<object>> GetAllSubscriptionsForUserAsync(int userId)
+        public Task<IList<object>> GetAllSubscriptionsForUserAsync(string userId)
         {
             throw new NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace SubscriptionService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<object> GetSubscriptionByIdAsync(int subscriptionId)
+        public Task<object> GetSubscriptionByIdAsync(string subscriptionId)
         {
             throw new NotImplementedException();
         }
@@ -37,7 +37,7 @@ namespace SubscriptionService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<object> PauseSubscriptionByIdAsync(int subscriptionId)
+        public Task<object> PauseSubscriptionByIdAsync(string subscriptionId)
         {
             throw new NotImplementedException();
         }
@@ -47,12 +47,12 @@ namespace SubscriptionService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<object> ResumeSubscriptionByIdAsync(int subscriptionId)
+        public Task<object> ResumeSubscriptionByIdAsync(string subscriptionId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> UpgradeSubscriptionAsync(int subscriptionId, object subscription)
+        public Task<object> UpgradeSubscriptionAsync(string subscriptionId, object subscription)
         {
             throw new NotImplementedException();
         }

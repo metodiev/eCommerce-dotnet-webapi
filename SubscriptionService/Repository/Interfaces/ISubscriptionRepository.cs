@@ -6,15 +6,15 @@ namespace SubscriptionService.Repository.Interfaces
 {
     public interface ISubscriptionRepository
     {
-        Task<object> CancelSubscriptionByIdAsync(int subscriptionId);
+        Task<object> CancelSubscriptionByIdAsync(string subscriptionId);
         Task<object> CreateSubscriptionForUserAsync();
-        Task<IList<object>> GetAllSubscriptionsForUserAsync(int userId);
+        Task<IList<object>> GetAllSubscriptionsForUserAsync(string userId);
         Task<IList<object>> GetAvailableSubscriptionPlansAsync();
-        Task<object> GetSubscriptionByIdAsync(int subscriptionId);
+        Task<object> GetSubscriptionByIdAsync(string subscriptionId);
         Task HealthCheckAsync();
-        Task<object> PauseSubscriptionByIdAsync(int subscriptionId);
+        Task<object> PauseSubscriptionByIdAsync(string subscriptionId);
         Task<object> ReceivePaymentEventsAsync(object payload);
-        Task<object> ResumeSubscriptionByIdAsync(int subscriptionId);
-        Task<object> UpgradeSubscriptionAsync(int subscriptionId, object subscription);
+        Task<object> ResumeSubscriptionByIdAsync(string subscriptionId);
+        Task<object> UpgradeSubscriptionAsync(string subscriptionId, object subscription);
     }
 }

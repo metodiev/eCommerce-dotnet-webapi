@@ -13,7 +13,7 @@ namespace SubscriptionService.Services
         {
             _subscriptionRepository = subscriptionRepository;
         }
-        public async Task<object> CancelSubscriptionByIdAsync(int subscriptionId)
+        public async Task<object> CancelSubscriptionByIdAsync(string subscriptionId)
         {
             return await _subscriptionRepository.CancelSubscriptionByIdAsync(subscriptionId);
         }
@@ -23,7 +23,7 @@ namespace SubscriptionService.Services
             return await _subscriptionRepository.CreateSubscriptionForUserAsync();
         }
 
-        public async Task<IList<object>> GetAllSubscriptionsForUserAsync(int userId)
+        public async Task<IList<object>> GetAllSubscriptionsForUserAsync(string userId)
         {
             return await _subscriptionRepository.GetAllSubscriptionsForUserAsync(userId);
         }
@@ -33,7 +33,7 @@ namespace SubscriptionService.Services
             return await _subscriptionRepository.GetAvailableSubscriptionPlansAsync();
         }
 
-        public async Task<object> GetSubscriptionByIdAsync(int subscriptionId)
+        public async Task<object> GetSubscriptionByIdAsync(string subscriptionId)
         {
             return await _subscriptionRepository.GetSubscriptionByIdAsync(subscriptionId);
         }
@@ -43,7 +43,7 @@ namespace SubscriptionService.Services
             await _subscriptionRepository.HealthCheckAsync();
         }
 
-        public async Task<object> PauseSubscriptionByIdAsync(int subscriptionId)
+        public async Task<object> PauseSubscriptionByIdAsync(string subscriptionId)
         {
             return await _subscriptionRepository.PauseSubscriptionByIdAsync(subscriptionId);
         }
@@ -53,12 +53,12 @@ namespace SubscriptionService.Services
             return await _subscriptionRepository.ReceivePaymentEventsAsync(payload);
         }
 
-        public async Task<object> ResumeSubscriptionByIdAsync(int subscriptionId)
+        public async Task<object> ResumeSubscriptionByIdAsync(string subscriptionId)
         {
             return await _subscriptionRepository.ResumeSubscriptionByIdAsync(subscriptionId);
         }
 
-        public async Task<object> UpgradeSubscriptionAsync(int subscriptionId, object subscription)
+        public async Task<object> UpgradeSubscriptionAsync(string subscriptionId, object subscription)
         {
             return await _subscriptionRepository.UpgradeSubscriptionAsync(subscriptionId, subscription);
         }
