@@ -37,7 +37,7 @@ namespace CMSService.Controllers.v1
         /// <param name="pageId">Id of page to fetch</param>
         /// <returns></returns>
         [HttpGet("pages/{pageId}")]
-        public async Task<IActionResult> GetCMSPageById(int pageId)
+        public async Task<IActionResult> GetCMSPageById(string pageId)
         {
             var page = await _cmsService.GetCMSPageByIdAsync(pageId);
             return Ok(page);
@@ -62,7 +62,7 @@ namespace CMSService.Controllers.v1
         /// <returns></returns>
         [HttpPut("pages/{pageId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateCMSPage(int pageId, object page)
+        public async Task<IActionResult> UpdateCMSPage(string pageId, object page)
         {
             var updatedPage = await _cmsService.UpdateCMSPageAsync(pageId, page);
             return Ok(updatedPage);
@@ -74,7 +74,7 @@ namespace CMSService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("pages/{pageId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteCMSPage(int pageId)
+        public async Task<IActionResult> DeleteCMSPage(string pageId)
         {
             await _cmsService.DeleteCMSPageAsync(pageId);
             return Ok();
@@ -95,7 +95,7 @@ namespace CMSService.Controllers.v1
         /// <param name="blogId">Id of blog post to fetch</param>
         /// <returns></returns>
         [HttpGet("blogs/{blogId}")]
-        public async Task<IActionResult> GetBlogPostById(int blogId)
+        public async Task<IActionResult> GetBlogPostById(string blogId)
         {
             var blog = await _cmsService.GetBlogPostByIdAsync(blogId);
             return Ok(blog);
@@ -120,7 +120,7 @@ namespace CMSService.Controllers.v1
         /// <returns></returns>
         [HttpPut("blogs/{blogId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateBlogPost(int blogId, object blog)
+        public async Task<IActionResult> UpdateBlogPost(string blogId, object blog)
         {
             var updatedBlog = await _cmsService.UpdateBlogPostAsync(blogId, blog);
             return Ok(updatedBlog);
@@ -132,7 +132,7 @@ namespace CMSService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("blogs/{blogId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteBlogPost(int blogId)
+        public async Task<IActionResult> DeleteBlogPost(string blogId)
         {
             await _cmsService.DeleteBlogPostAsync(blogId);
             return Ok();
@@ -167,7 +167,7 @@ namespace CMSService.Controllers.v1
         /// <returns></returns>
         [HttpPut("faqs/{faqId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateFAQ(int faqId, object faq)
+        public async Task<IActionResult> UpdateFAQ(string faqId, object faq)
         {
             var updatedFaq = await _cmsService.UpdateFAQAsync(faqId, faq);
             return Ok(updatedFaq);
@@ -179,7 +179,7 @@ namespace CMSService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("faqs/{faqId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteFAQ(int faqId)
+        public async Task<IActionResult> DeleteFAQ(string faqId)
         {
             await _cmsService.DeleteFAQAsync(faqId);
             return Ok();

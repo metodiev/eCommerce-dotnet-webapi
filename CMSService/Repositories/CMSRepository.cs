@@ -22,17 +22,17 @@ namespace CMSService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task DeleteBlogPostAsync(int blogId)
+        public Task DeleteBlogPostAsync(string blogId)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteCMSPageAsync(int pageId)
+        public Task DeleteCMSPageAsync(string pageId)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteFAQAsync(int faqId)
+        public Task DeleteFAQAsync(string faqId)
         {
             throw new NotImplementedException();
         }
@@ -42,7 +42,7 @@ namespace CMSService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> GetBlogPostByIdAsync(int blogId)
+        public Task<object> GetBlogPostByIdAsync(string blogId)
         {
             throw new NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace CMSService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> GetCMSPageByIdAsync(int pageId)
+        public Task<object> GetCMSPageByIdAsync(string pageId)
         {
             throw new NotImplementedException();
         }
@@ -67,17 +67,17 @@ namespace CMSService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateBlogPostAsync(int blogId, object blog)
+        public Task<object> UpdateBlogPostAsync(string blogId, object blog)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateCMSPageAsync(int pageId, object page)
+        public Task<object> UpdateCMSPageAsync(string pageId, object page)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateFAQAsync(int faqId, object faq)
+        public Task<object> UpdateFAQAsync(string faqId, object faq)
         {
             throw new NotImplementedException();
         }

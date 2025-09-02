@@ -28,17 +28,17 @@ namespace CMSService.Services
             return await _cmsRepository.CreateFAQAsync(faq);
         }
 
-        public async Task DeleteBlogPostAsync(int blogId)
+        public async Task DeleteBlogPostAsync(string blogId)
         {
             await _cmsRepository.DeleteBlogPostAsync(blogId);
         }
 
-        public async Task DeleteCMSPageAsync(int pageId)
+        public async Task DeleteCMSPageAsync(string pageId)
         {
             await _cmsRepository.DeleteCMSPageAsync(pageId);
         }
 
-        public async Task DeleteFAQAsync(int faqId)
+        public async Task DeleteFAQAsync(string faqId)
         {
             await _cmsRepository.DeleteFAQAsync(faqId);
         }
@@ -48,7 +48,7 @@ namespace CMSService.Services
             return await _cmsRepository.GetAllCMSPagesAsync();
         }
 
-        public async Task<object> GetBlogPostByIdAsync(int blogId)
+        public async Task<object> GetBlogPostByIdAsync(string blogId)
         {
             return await _cmsRepository.GetBlogPostByIdAsync(blogId);
         }
@@ -58,7 +58,7 @@ namespace CMSService.Services
             return await _cmsRepository.GetBlogPostsAsync();
         }
 
-        public async Task<object> GetCMSPageByIdAsync(int pageId)
+        public async Task<object> GetCMSPageByIdAsync(string pageId)
         {
             return await _cmsRepository.GetCMSPageByIdAsync(pageId);
         }
@@ -73,17 +73,17 @@ namespace CMSService.Services
             await _cmsRepository.HealthCheckAsync();
         }
 
-        public async Task<object> UpdateBlogPostAsync(int blogId, object blog)
+        public async Task<object> UpdateBlogPostAsync(string blogId, object blog)
         {
             return await _cmsRepository.UpdateBlogPostAsync(blogId, blog);
         }
 
-        public async Task<object> UpdateCMSPageAsync(int pageId, object page)
+        public async Task<object> UpdateCMSPageAsync(string pageId, object page)
         {
             return await _cmsRepository.UpdateCMSPageAsync(pageId, page);
         }
 
-        public async Task<object> UpdateFAQAsync(int faqId, object faq)
+        public async Task<object> UpdateFAQAsync(string faqId, object faq)
         {
             return await _cmsRepository.UpdateFAQAsync(faqId, faq);
         }
