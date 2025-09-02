@@ -12,7 +12,7 @@ namespace NotificationService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task DeleteNotificationTemplateAsync(int templateId)
+        public Task DeleteNotificationTemplateAsync(string templateId)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +22,7 @@ namespace NotificationService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> GetNotificationStatusAsync(int notificationId)
+        public Task<object> GetNotificationStatusAsync(string notificationId)
         {
             throw new NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace NotificationService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateNotificationTemplateAsync(int templateId, object template)
+        public Task<object> UpdateNotificationTemplateAsync(string templateId, object template)
         {
             throw new NotImplementedException();
         }

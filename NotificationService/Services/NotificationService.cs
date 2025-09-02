@@ -19,7 +19,7 @@ namespace NotificationService.Services
             return await _notificationRepository.CreateNotificationTemplateAsync(template); 
         }
 
-        public async Task DeleteNotificationTemplateAsync(int templateId)
+        public async Task DeleteNotificationTemplateAsync(string templateId)
         {
             await _notificationRepository.DeleteNotificationTemplateAsync(templateId);
         }
@@ -29,7 +29,7 @@ namespace NotificationService.Services
             return await _notificationRepository.GetAllNotificationTemplatesAsync();
         }
 
-        public async Task<object> GetNotificationStatusAsync(int notificationId)
+        public async Task<object> GetNotificationStatusAsync(string notificationId)
         {
             return await _notificationRepository.GetNotificationStatusAsync(notificationId);
         }
@@ -54,7 +54,7 @@ namespace NotificationService.Services
             return await _notificationRepository.SendSMSNotificationAsync(notification);
         }
 
-        public async Task<object> UpdateNotificationTemplateAsync(int templateId, object template)
+        public async Task<object> UpdateNotificationTemplateAsync(string templateId, object template)
         {
             return await _notificationRepository.UpdateNotificationTemplateAsync(templateId, template);
         }

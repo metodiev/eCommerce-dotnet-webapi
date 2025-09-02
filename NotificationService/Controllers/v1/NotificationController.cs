@@ -88,7 +88,7 @@ namespace NotificationService.Controllers.v1
         /// <returns></returns>
         [HttpPut("templates/{templateId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateNotificationTemplate(int templateId, object template)
+        public async Task<IActionResult> UpdateNotificationTemplate(string templateId, object template)
         {
             var newTemplate = await _notificationService.UpdateNotificationTemplateAsync(templateId, template);
             return Ok(newTemplate);
@@ -100,7 +100,7 @@ namespace NotificationService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("templates/{templateId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteNotificationTemplate(int templateId)
+        public async Task<IActionResult> DeleteNotificationTemplate(string templateId)
         {
             await _notificationService.DeleteNotificationTemplateAsync(templateId);
             return Ok();
@@ -112,7 +112,7 @@ namespace NotificationService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("status/{notificationId}")]
         [Authorize(Roles = "Internal")]
-        public async Task<IActionResult> GetNotificationStatus(int notificationId)
+        public async Task<IActionResult> GetNotificationStatus(string notificationId)
         {
             var status = await _notificationService.GetNotificationStatusAsync(notificationId);
             return Ok(status);
