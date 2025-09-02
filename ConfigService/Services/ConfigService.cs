@@ -23,12 +23,12 @@ namespace ConfigService.Services
             return await _configRepository.CreateSystemSettingAsync(setting);
         }
 
-        public async Task DeleteFeatureFlagAsync(int flagId)
+        public async Task DeleteFeatureFlagAsync(string flagId)
         {
             await _configRepository.DeleteFeatureFlagAsync(flagId);
         }
 
-        public async Task DeleteSystemSettingAsync(int settingId)
+        public async Task DeleteSystemSettingAsync(string settingId)
         {
             await _configRepository.DeleteSystemSettingAsync(settingId);
         }
@@ -53,12 +53,12 @@ namespace ConfigService.Services
             await _configRepository.HealthCheckAsync();
         }
 
-        public async Task<object> UpdateFeatureFlagAsync(int flagId, object featureFlag)
+        public async Task<object> UpdateFeatureFlagAsync(string flagId, object featureFlag)
         {
             return await _configRepository.UpdateFeatureFlagAsync(flagId, featureFlag);
         }
 
-        public async Task<object> UpdateSystemSettingAsync(int settingId, object setting)
+        public async Task<object> UpdateSystemSettingAsync(string settingId, object setting)
         {
             return await _configRepository.UpdateSystemSettingAsync(settingId, setting);
         }

@@ -70,7 +70,7 @@ namespace ConfigService.Controllers.v1
         /// <param name="featureFlag">Modified feature flag object</param>
         /// <returns></returns>
         [HttpPut("feature-flags/{flagId}")]
-        public async Task<IActionResult> UpdateFeatureFlag(int flagId, object featureFlag)
+        public async Task<IActionResult> UpdateFeatureFlag(string flagId, object featureFlag)
         {
             var modifiedFeatureFlag = await _configService.UpdateFeatureFlagAsync(flagId, featureFlag);
             return Ok(modifiedFeatureFlag);
@@ -81,7 +81,7 @@ namespace ConfigService.Controllers.v1
         /// <param name="flagId">Id of flag to delete</param>
         /// <returns></returns>
         [HttpDelete("feature-flags/{flagId}")]
-        public async Task<IActionResult> DeleteFeatureFlag(int flagId)
+        public async Task<IActionResult> DeleteFeatureFlag(string flagId)
         {
             await _configService.DeleteFeatureFlagAsync(flagId);
             return Ok();
@@ -104,7 +104,7 @@ namespace ConfigService.Controllers.v1
         /// <param name="setting">Modified setting object</param>
         /// <returns></returns>
         [HttpPut("settings/{settingId}")]
-        public async Task<IActionResult> UpdateSystemSetting(int settingId, object setting)
+        public async Task<IActionResult> UpdateSystemSetting(string settingId, object setting)
         {
             var modifiedSystemSetting = await _configService.UpdateSystemSettingAsync(settingId, setting);
             return Ok(modifiedSystemSetting);
@@ -115,7 +115,7 @@ namespace ConfigService.Controllers.v1
         /// <param name="settingId">Id of setting to delete</param>
         /// <returns></returns>
         [HttpDelete("settings/{settingId}")]
-        public async Task<IActionResult> DeleteSystemSetting(int settingId)
+        public async Task<IActionResult> DeleteSystemSetting(string settingId)
         {
             await _configService.DeleteSystemSettingAsync(settingId);
             return Ok();

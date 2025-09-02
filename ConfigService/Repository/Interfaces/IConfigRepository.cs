@@ -8,13 +8,13 @@ namespace ConfigService.Repository.Interfaces
     {
         Task<object> CreateFeatureFlagAsync(object featureFlag);
         Task<object> CreateSystemSettingAsync(object setting);
-        Task DeleteFeatureFlagAsync(int flagId);
-        Task DeleteSystemSettingAsync(int settingId);
+        Task DeleteFeatureFlagAsync(string flagId);
+        Task DeleteSystemSettingAsync(string settingId);
         Task<IList<object>> GetAllFeatureFlagsAsync();
         Task<IList<object>> GetAllRecentLogsAsync();
         Task<IList<object>> GetAllSystemSettingsAsync();
         Task HealthCheckAsync();
-        Task<object> UpdateFeatureFlagAsync(int flagId, object featureFlag);
-        Task<object> UpdateSystemSettingAsync(int settingId, object setting);
+        Task<object> UpdateFeatureFlagAsync(string flagId, object featureFlag);
+        Task<object> UpdateSystemSettingAsync(string settingId, object setting);
     }
 }

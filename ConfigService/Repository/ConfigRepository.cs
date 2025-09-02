@@ -17,12 +17,12 @@ namespace ConfigService.Repository
             throw new NotImplementedException();
         }
 
-        public Task DeleteFeatureFlagAsync(int flagId)
+        public Task DeleteFeatureFlagAsync(string flagId)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteSystemSettingAsync(int settingId)
+        public Task DeleteSystemSettingAsync(string settingId)
         {
             throw new NotImplementedException();
         }
@@ -47,12 +47,12 @@ namespace ConfigService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateFeatureFlagAsync(int flagId, object featureFlag)
+        public Task<object> UpdateFeatureFlagAsync(string flagId, object featureFlag)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateSystemSettingAsync(int settingId, object setting)
+        public Task<object> UpdateSystemSettingAsync(string settingId, object setting)
         {
             throw new NotImplementedException();
         }
