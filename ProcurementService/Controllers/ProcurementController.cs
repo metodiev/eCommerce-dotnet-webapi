@@ -41,7 +41,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns></returns>
         [HttpGet("purchase-orders/{orderId}")]
         [Authorize(Roles = "Admin,Buyer")]
-        public async Task<IActionResult> GetPurchaseOrderById(int orderId)
+        public async Task<IActionResult> GetPurchaseOrderById(string orderId)
         {
             var order = await _procurementService.GetPurchaseOrderByIdAsync(orderId);
             return Ok(order);
@@ -53,7 +53,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns>Purchase orders for user</returns>
         [HttpGet("purchase-orders/user/{userId}")]
         [Authorize(Roles = "Admin,Buyer")]
-        public async Task<IActionResult> GetPurchaseOrdersForUserByUserId(int userId)
+        public async Task<IActionResult> GetPurchaseOrdersForUserByUserId(string userId)
         {
             var orderList = await _procurementService.GetPurchaseOrdersForUserByUserIdAsync(userId);
             return Ok(orderList);
@@ -65,7 +65,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns></returns>
         [HttpPut("purchase-orders/{orderId}/approve")]
         [Authorize(Roles = "Approver")]
-        public async Task<IActionResult> ApprovePurchaseOrder(int orderId)
+        public async Task<IActionResult> ApprovePurchaseOrder(string orderId)
         {
             var approvedOrder = await _procurementService.ApprovePurchaseOrderAsync(orderId);
             return Ok(approvedOrder);
@@ -77,7 +77,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns></returns>
         [HttpPut("purchase-orders/{orderId}/reject")]
         [Authorize(Roles = "Approver")]
-        public async Task<IActionResult> RejectPurchaseOrder(int orderId)
+        public async Task<IActionResult> RejectPurchaseOrder(string orderId)
         {
             var rejectedOrder = await _procurementService.RejectPurchaseOrderAsync(orderId);
             return Ok(rejectedOrder);
@@ -112,7 +112,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns></returns>
         [HttpGet("vendors/{vendorId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetVendorById(int vendorId)
+        public async Task<IActionResult> GetVendorById(string vendorId)
         {
             var vendor = await _procurementService.GetVendorByIdAsync(vendorId);
             return Ok(vendor);
@@ -125,7 +125,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns></returns>
         [HttpPut("vendors/{vendorId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateVendor(int vendorId, object vendorInfo)
+        public async Task<IActionResult> UpdateVendor(string vendorId, object vendorInfo)
         {
             var updatedVendor = await _procurementService.UpdateVendorAsync(vendorId, vendorInfo);
             return Ok(updatedVendor);
@@ -137,7 +137,7 @@ namespace ProcurementService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("vendors/{vendorId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteVendor(int vendorId)
+        public async Task<IActionResult> DeleteVendor(string vendorId)
         {
             await _procurementService.DeleteVendorAsync(vendorId);
             return Ok();

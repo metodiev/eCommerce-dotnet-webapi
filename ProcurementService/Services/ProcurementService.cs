@@ -13,7 +13,7 @@ namespace ProcurementService.Services
         {
             _procurementRepository = procurementRepository;
         }
-        public async Task<object> ApprovePurchaseOrderAsync(int orderId)
+        public async Task<object> ApprovePurchaseOrderAsync(string orderId)
         {
             return await _procurementRepository.ApprovePurchaseOrderAsync(orderId);
         }
@@ -28,7 +28,7 @@ namespace ProcurementService.Services
             return await _procurementRepository.CreateVendorAsync(vendor);
         }
 
-        public async Task DeleteVendorAsync(int vendorId)
+        public async Task DeleteVendorAsync(string vendorId)
         {
             await _procurementRepository.DeleteVendorAsync(vendorId);
         }
@@ -38,17 +38,17 @@ namespace ProcurementService.Services
             return await _procurementRepository.GetAllVendorsAsync();
         }
 
-        public async Task<object> GetPurchaseOrderByIdAsync(int orderId)
+        public async Task<object> GetPurchaseOrderByIdAsync(string orderId)
         {
             return await _procurementRepository.GetPurchaseOrderByIdAsync(orderId);
         }
 
-        public async Task<IList<object>> GetPurchaseOrdersForUserByUserIdAsync(int userId)
+        public async Task<IList<object>> GetPurchaseOrdersForUserByUserIdAsync(string userId)
         {
             return await _procurementRepository.GetPurchaseOrdersForUserByUserIdAsync(userId);
         }
 
-        public Task<object> GetVendorByIdAsync(int vendorId)
+        public Task<object> GetVendorByIdAsync(string vendorId)
         {
             return _procurementRepository.GetVendorByIdAsync(vendorId);
         }
@@ -58,12 +58,12 @@ namespace ProcurementService.Services
             await _procurementRepository.HealthCheckAsync();
         }
 
-        public async Task<object> RejectPurchaseOrderAsync(int orderId)
+        public async Task<object> RejectPurchaseOrderAsync(string orderId)
         {
             return await _procurementRepository.RejectPurchaseOrderAsync(orderId);
         }
 
-        public Task<object> UpdateVendorAsync(int vendorId, object vendorInfo)
+        public Task<object> UpdateVendorAsync(string vendorId, object vendorInfo)
         {
             return _procurementRepository.UpdateVendorAsync(vendorId, vendorInfo);
         }

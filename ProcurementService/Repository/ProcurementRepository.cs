@@ -7,7 +7,7 @@ namespace ProcurementService.Repository
 {
     public class ProcurementRepository : IProcurementRepository
     {
-        public Task<object> ApprovePurchaseOrderAsync(int orderId)
+        public Task<object> ApprovePurchaseOrderAsync(string orderId)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +22,7 @@ namespace ProcurementService.Repository
             throw new NotImplementedException();
         }
 
-        public Task DeleteVendorAsync(int vendorId)
+        public Task DeleteVendorAsync(string vendorId)
         {
             throw new NotImplementedException();
         }
@@ -32,17 +32,17 @@ namespace ProcurementService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<object> GetPurchaseOrderByIdAsync(int orderId)
+        public Task<object> GetPurchaseOrderByIdAsync(string orderId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IList<object>> GetPurchaseOrdersForUserByUserIdAsync(int userId)
+        public Task<IList<object>> GetPurchaseOrdersForUserByUserIdAsync(string userId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> GetVendorByIdAsync(int vendorId)
+        public Task<object> GetVendorByIdAsync(string vendorId)
         {
             throw new NotImplementedException();
         }
@@ -52,12 +52,12 @@ namespace ProcurementService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<object> RejectPurchaseOrderAsync(int orderId)
+        public Task<object> RejectPurchaseOrderAsync(string orderId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> UpdateVendorAsync(int vendorId, object vendorInfo)
+        public Task<object> UpdateVendorAsync(string vendorId, object vendorInfo)
         {
             throw new NotImplementedException();
         }
