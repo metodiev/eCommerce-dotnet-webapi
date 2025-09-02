@@ -18,12 +18,12 @@ namespace GamificationService.Services
              return await _gamificationRepository.GetLeaderBoardAsync();
         }
 
-        public async Task<object> GetProgressAsync(int userId)
+        public async Task<object> GetProgressAsync(string userId)
         {
             return await _gamificationRepository.GetProgressAsync(userId);
         }
 
-        public async Task<IList<object>> GetRewardsStatusesByUserIdAsync(int userId)
+        public async Task<IList<object>> GetRewardsStatusesByUserIdAsync(string userId)
         {
             return await _gamificationRepository.GetRewardsStatusesByUserIdAsync(userId);
         }
@@ -38,7 +38,7 @@ namespace GamificationService.Services
             await _gamificationRepository.HealthCheckAsync();
         }
 
-        public async Task<object> RedeemRewardsAsync(int userId)
+        public async Task<object> RedeemRewardsAsync(string userId)
         {
             return await _gamificationRepository.RedeemRewardsAsync(userId);
         }

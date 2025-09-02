@@ -29,7 +29,7 @@ namespace GamificationService.Controllers.v1
         /// <returns></returns>
         [HttpGet("users/{userId}/rewards")]
         [Authorize(Roles = "Admin,User")]
-        public async Task<IActionResult> GetRewardsStatusesByUserId(int userId)
+        public async Task<IActionResult> GetRewardsStatusesByUserId(string userId)
         {
             var rewardsStatus = await _gamificationService.GetRewardsStatusesByUserIdAsync(userId);
             return Ok(rewardsStatus);
@@ -41,7 +41,7 @@ namespace GamificationService.Controllers.v1
         /// <returns></returns>
         [HttpPost("users/{userId}/rewards/redeem")]
         [Authorize(Roles = "Admin,User")]
-        public async Task<IActionResult> RedeemRewards(int userId)
+        public async Task<IActionResult> RedeemRewards(string userId)
         {
             var redeemedReward = await _gamificationService.RedeemRewardsAsync(userId);
             return Ok(redeemedReward);
@@ -88,7 +88,7 @@ namespace GamificationService.Controllers.v1
         /// <returns></returns>
         [HttpGet("users/{userId}/progress")]
         [Authorize(Roles = "Admin,User")]
-        public async Task<IActionResult> GetProgress(int userId)
+        public async Task<IActionResult> GetProgress(string userId)
         {
             var progress = await _gamificationService.GetProgressAsync(userId);
             return Ok(progress);

@@ -12,12 +12,12 @@ namespace GamificationService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> GetProgressAsync(int userId)
+        public Task<object> GetProgressAsync(string userId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IList<object>> GetRewardsStatusesByUserIdAsync(int userId)
+        public Task<IList<object>> GetRewardsStatusesByUserIdAsync(string userId)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +32,7 @@ namespace GamificationService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> RedeemRewardsAsync(int userId)
+        public Task<object> RedeemRewardsAsync(string userId)
         {
             throw new NotImplementedException();
         }
