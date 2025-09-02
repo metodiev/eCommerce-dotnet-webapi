@@ -12,7 +12,7 @@ namespace ProductService.Repository
             throw new NotImplementedException();
         }
 
-        public Task DeleteProductAsync(int productId)
+        public Task DeleteProductAsync(string productId)
         {
             throw new NotImplementedException();
         }
@@ -37,17 +37,17 @@ namespace ProductService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IList<object>> GetProductAttributesByProductIdAsync(int productId)
+        public Task<IList<object>> GetProductAttributesByProductIdAsync(string productId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<object> GetProductByIdAsync(int productId)
+        public Task<object> GetProductByIdAsync(string productId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IList<object>> GetProductsByCategoryIdAsync(int categoryId)
+        public Task<IList<object>> GetProductsByCategoryIdAsync(string categoryId)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace ProductService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IList<object>> UpdateProductAttributesAsync(int productId, IList<object> productAttributes)
+        public Task<IList<object>> UpdateProductAttributesAsync(string productId, IList<object> productAttributes)
         {
             throw new NotImplementedException();
         }

@@ -37,7 +37,7 @@ namespace ProductService.Controllers.v1
         /// <param name="productId">Id of product to fetch</param>
         /// <returns>Product Details</returns>
         [HttpGet("{productId}")]
-        public async Task<IActionResult> GetProductById(int productId)
+        public async Task<IActionResult> GetProductById(string productId)
         {
             var product = await _productService.GetProductByIdAsync(productId);
             return Ok(product);
@@ -61,7 +61,7 @@ namespace ProductService.Controllers.v1
         /// <returns></returns>
         [HttpPut("{productId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateProduct(int productId, object modifiedProduct)
+        public async Task<IActionResult> UpdateProduct(string productId, object modifiedProduct)
         {
             var updatedProduct = await _productService.UpdateProductAsync(productId, modifiedProduct);
             return Ok(updatedProduct);
@@ -73,7 +73,7 @@ namespace ProductService.Controllers.v1
         /// <returns></returns>
         [HttpDelete("{productId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteProduct(int productId)
+        public async Task<IActionResult> DeleteProduct(string productId)
         {
             await _productService.DeleteProductAsync(productId);
             return Ok();
@@ -95,7 +95,7 @@ namespace ProductService.Controllers.v1
         /// <param name="categoryId">Id of category to fetch products for </param>
         /// <returns>List of products</returns>
         [HttpGet("category/{categoryId}")]
-        public async Task<IActionResult> GetProductsByCategoryId(int categoryId)
+        public async Task<IActionResult> GetProductsByCategoryId(string categoryId)
         {
             var productList = await _productService.GetProductsByCategoryIdAsync(categoryId);
             return Ok(productList);
@@ -106,7 +106,7 @@ namespace ProductService.Controllers.v1
         /// <param name="productId">Id of product to fetch attributes for</param>
         /// <returns></returns>
         [HttpGet("{productId}/attributes")]
-        public async Task<IActionResult> GetProductAttributesByProductId(int productId)
+        public async Task<IActionResult> GetProductAttributesByProductId(string productId)
         {
             var productList = await _productService.GetProductAttributesByProductIdAsync(productId);
             return Ok(productList);
@@ -119,7 +119,7 @@ namespace ProductService.Controllers.v1
         /// <returns></returns>
         [HttpPut("{productId}/attributes")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateProductAttributes(int productId, IList<object> productAttributes)
+        public async Task<IActionResult> UpdateProductAttributes(string productId, IList<object> productAttributes)
         {
             var updatedProduct = await _productService.UpdateProductAttributesAsync(productId, productAttributes);
             return Ok(updatedProduct);

@@ -18,7 +18,7 @@ namespace ProductService.Services
             return await _productRepository.CreateProductAsync(product);
         }
 
-        public async Task DeleteProductAsync(int productId)
+        public async Task DeleteProductAsync(string productId)
         {
             await _productRepository.DeleteProductAsync(productId);
         }
@@ -43,17 +43,17 @@ namespace ProductService.Services
             return await _productRepository.GetPaginatedProductsAsync();
         }
 
-        public async Task<IList<object>> GetProductAttributesByProductIdAsync(int productId)
+        public async Task<IList<object>> GetProductAttributesByProductIdAsync(string productId)
         {
             return await _productRepository.GetProductAttributesByProductIdAsync(productId);
         }
 
-        public async Task<object> GetProductByIdAsync(int productId)
+        public async Task<object> GetProductByIdAsync(string productId)
         {
             return await _productRepository.GetProductByIdAsync(productId);
         }
 
-        public async Task<IList<object>> GetProductsByCategoryIdAsync(int categoryId)
+        public async Task<IList<object>> GetProductsByCategoryIdAsync(string categoryId)
         {
             return await _productRepository.GetProductsByCategoryIdAsync(categoryId);
         }
@@ -68,7 +68,7 @@ namespace ProductService.Services
             return await _productRepository.UpdateProductAsync(product, modifiedProduct);
         }
 
-        public async Task<IList<object>> UpdateProductAttributesAsync(int productId, IList<object> productAttributes)
+        public async Task<IList<object>> UpdateProductAttributesAsync(string productId, IList<object> productAttributes)
         {
             return await _productRepository.UpdateProductAttributesAsync(productId, productAttributes);
         }

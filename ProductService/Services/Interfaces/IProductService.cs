@@ -7,16 +7,16 @@ namespace ProductService.Services.Interfaces
     public interface IProductService
     {
         Task<object> CreateProductAsync(object product);
-        Task DeleteProductAsync(int productId);
+        Task DeleteProductAsync(string productId);
         Task<IList<object>> GetAllProductBrandsAsync();
         Task<IList<object>> GetAvailableProductTagsAsync();
         Task<IList<object>> GetFilteredProductsAsync(object searchCriteria);
         Task<IList<object>> GetPaginatedProductsAsync();
-        Task<IList<object>> GetProductAttributesByProductIdAsync(int productId);
-        Task<object> GetProductByIdAsync(int productId);
-        Task<IList<object>> GetProductsByCategoryIdAsync(int categoryId);
+        Task<IList<object>> GetProductAttributesByProductIdAsync(string productId);
+        Task<object> GetProductByIdAsync(string productId);
+        Task<IList<object>> GetProductsByCategoryIdAsync(string categoryId);
         Task HealthCheckAsync();
         Task<object> UpdateProductAsync(object product, object modifiedProduct);
-        Task<IList<object>> UpdateProductAttributesAsync(int productId, IList<object> productAttributes);
+        Task<IList<object>> UpdateProductAttributesAsync(string productId, IList<object> productAttributes);
     }
 }
