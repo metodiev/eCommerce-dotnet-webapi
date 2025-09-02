@@ -12,7 +12,7 @@ namespace SearchService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<object> GetProductDetailsFromIdAsync(int productId)
+        public Task<object> GetProductDetailsFromIdAsync(string productId)
         {
             throw new NotImplementedException();
         }

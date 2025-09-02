@@ -18,7 +18,7 @@ namespace SearchService.Services
             return await _searchRepository.GetFilteredProductsAsync(keywords, filters);
         }
 
-        public async Task<object> GetProductDetailsFromIdAsync(int productId)
+        public async Task<object> GetProductDetailsFromIdAsync(string productId)
         {
             return await _searchRepository.GetProductDetailsFromIdAsync(productId);
         }

@@ -38,7 +38,7 @@ namespace SearchService.Controllers.v1
         /// <param name="productId">Id of product to fetch details for</param>
         /// <returns></returns>
         [HttpGet("products/{productId}")]
-        public async Task<IActionResult> GetProductDetailsFromId(int productId)
+        public async Task<IActionResult> GetProductDetailsFromId(string productId)
         {
             var product = await _searchService.GetProductDetailsFromIdAsync(productId);
             return Ok(product);
